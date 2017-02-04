@@ -21,6 +21,9 @@ public class HelloControllerTests {
         
         HelloController controller = new HelloController();
         ModelAndView modelandView= controller.handleRequest(null,null);
-        assertEquals("hello.jsp",modelandView.getViewName());
+        assertEquals("hello",modelandView.getViewName());
+        assertNotNull(modelandView.getModel());
+        String nowValue=(String) modelandView.getModel().get("now");
+        assertNotNull(nowValue);
     }
 }
